@@ -5,16 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class Core extends Controller
+class IndexController extends Controller
 {
-
-    public function getArticles(){
-
-    }
-
-    public function getArticle($id){
-        echo $id;
-
+    public function show(){
+        return view('welcome');
     }
     //
 }

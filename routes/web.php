@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home', function () {
     return view('welcome');
-});
+}]);
 
 Route::get('/about','FirstController@show');
 Route::get('/about/{id}','FirstController@show1');
 
 Route::get('/articles',['uses' => 'Admin\Core@getArticles', 'as' => 'articles']);
-Route::get('/article/{id}',['uses' => 'Admin\Core@getArticle', 'as' => 'article']);
+Route::get('/article/{page}',['uses' => 'Admin\Core@getArticle', 'as' => 'article'])->middleware('mymiddle');;
 
 
 //list
@@ -29,7 +29,7 @@ Route::get('/article/{id}',['uses' => 'Admin\Core@getArticle', 'as' => 'article'
 //Route::resource('/pages','Admin\CoreResource',['except' => ['index', 'show']]);
 
 //Route::controller('/pages', 'PagesController'); // deprecated 5.3
-Route::resource('/pages', 'PagesController');
+//Route::resource('/pages', 'PagesController');
 
 
 
